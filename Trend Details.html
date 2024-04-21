@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Trend Details</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <link rel="stylesheet" href="css/styles.css">
+  <style>
+    body {
+      background-image: url("5.jpg");
+      background-size: cover;
+      background-position: center;
+      background-attachment: fixed;
+      background-color: #f8f9fa;
+    }
+
+    .hero {
+      background-color: rgba(0, 0, 0, 0.6);
+      padding: 2rem;
+      border-radius: 0.5rem;
+      box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
+    }
+
+    .trend-image {
+      max-height: 400px;
+      object-fit: cover;
+      border-radius: 0.5rem;
+      box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
+    }
+  </style>
+</head>
+<body>
+  <!-- Navigation -->
+  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <a class="navbar-brand" href="Tech Trends.html">Tech Trends</a>
+    <ul class="navbar-nav">
+      <li class="nav-item">
+        <a class="nav-link" href="index.html">Home</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="Trend Details.html">Trends</a>
+      </li>
+    </ul>
+  </nav>
+
+  <!-- Main Content -->
+  <div class="container my-4">
+    <div class="hero text-white">
+      <h1 class="text-center mb-4" id="trend-title">Trend Title</h1>
+    </div>
+    <div class="row mt-4">
+      <div class="col-md-8">
+        <div class="bg-light p-4 rounded shadow">
+          <h2>Overview</h2>
+          <p id="trend-overview">Artificial Intelligence (AI) refers to the development of computer systems capable of performing tasks that typically require human intelligence, such as visual perception, speech recognition, decision-making, and language translation.</p>
+          <h2>Key Innovations</h2>
+          <ul id="trend-innovations">
+            <li>Machine Learning</li>
+            <li>Natural Language Processing</li>
+            <li>Computer Vision</li>
+          </ul>
+          <h2>Major Players</h2>
+          <p id="trend-players">AI industry include Google, Microsoft, Amazon, IBM, and OpenAI.</p>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="bg-light p-4 rounded shadow">
+          <h3>Notable Products/Services</h3>
+          <table class="table table-striped">
+            <thead>
+              <tr>
+                <th>Product/Service</th>
+                <th>Company</th>
+              </tr>
+            </thead>
+            <tbody id="trend-products">
+              <tr>
+                <td>Google Assistant</td>
+                <td>Google</td>
+              </tr>
+              <tr>
+                <td>Alexa</td>
+                <td>Amazon</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  <script>
+    // Get the trend parameter from the URL
+    const urlParams = new URLSearchParams(window.location.search);
+    const trend = urlParams.get('trend');
+
+    // Update the content based on the trend parameter
+    const trendTitle = document.getElementById('trend-title');
+    const trendImage = document.getElementById('trend-image');
+    const trendOverview = document.getElementById('trend-overview');
+    const trendInnovations = document.getElementById('trend-innovations');
+    const trendPlayers = document.getElementById('trend-players');
+    const trendProducts = document.getElementById('trend-products');
+
+    switch (trend) {
+      case 'iot':
+        trendTitle.textContent = 'Internet of Things (IoT)';
+        trendImage.src = 'iot.jpg';
+        trendOverview.textContent = 'The Internet of Things (IoT) refers to the interconnection of various devices and objects, enabling them to collect and exchange data over the internet. IoT allows for the integration of physical and digital worlds, enabling more efficient and automated processes.';
+        trendInnovations.innerHTML = `
+          <li>Smart Home Automation</li>
+          <li>Industrial IoT</li>
+          <li>Connected Vehicles</li>
+        `;
+        trendPlayers.textContent = 'Major players in the IoT industry include Amazon, Google, Microsoft, Cisco, and Samsung.';
+        trendProducts.innerHTML = `
+          <tr>
+            <td>Amazon Echo</td>
+            <td>Amazon</td>
+          </tr>
+          <tr>
+            <td>Nest Thermostat</td>
+            <td>Google</td>
+          </tr>
+        `;
+        break;
+
+      case 'blockchain':
+        trendTitle.textContent = 'Blockchain Technology';
+        trendImage.src = 'blockchain.jpg';
+        trendOverview.textContent = 'Blockchain is a decentralized, distributed ledger technology that records transactions across multiple nodes in a network. It provides a secure, transparent, and immutable way of recording data and facilitating transactions without the need for a central authority.';
+        trendInnovations.innerHTML = `
+          <li>Cryptocurrencies</li>
+          <li>Smart Contracts</li>
+          <li>Decentralized Applications (DApps)</li>
+        `;
+        trendPlayers.textContent = 'Major players in the blockchain industry include Bitcoin, Ethereum, Ripple, and IBM.';
+        trendProducts.innerHTML = `
+          <tr>
+            <td>Bitcoin</td>
+            <td>Satoshi Nakamoto</td>
+          </tr>
+          <tr>
+            <td>Ethereum</td>
+            <td>Ethereum Foundation</td>
+          </tr>
+        `;
+        break;
+
+      // Add more cases for other trends
+      default:
+        break;
+    }
+  </script>
+</body>
+</html>
